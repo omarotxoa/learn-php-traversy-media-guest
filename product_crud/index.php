@@ -20,7 +20,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
   </head>
   <body>
     <div class="container my-5">
-      <div class="col-lg-8 px-0">
+      <div class="col-12 px-0">
         <h1>Product Crud</h1>
         <p><a href="create.php" class="btn btn-outline-primary">Create</a></p>
         <table class="table">
@@ -31,7 +31,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <th scope="col">Title</th>
                 <th scope="col">Price</th>
                 <th scope="col">Create Date</th>
-                <th scope="col">Action</th>
+                <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +39,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     
                     <th><?php echo $i + 1; ?></th>
-                    <td><?php echo $product['image']; ?></td>
+                    <td><img class="product-image" src="<?php echo $product['image']; ?>"></td>
                     <td><?php echo $product['title']; ?></td>
                     <td><?php echo $product['price']; ?></td>
                     <td><?php echo $product['create_date']; ?></td>

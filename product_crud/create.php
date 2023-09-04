@@ -25,15 +25,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Description is required';
     }
 
-    $statement = $pdo->prepare("INSERT INTO products(title, image, description, price, create_date)
-                    VALUE (:title, :image, :description, :price, :date)"); 
-    $statement->bindValue(':title', $title);
-    $statement->bindValue(':image', '');
-    $statement->bindValue(':description', $description);
-    $statement->bindValue(':price', $price);
-    $statement->bindValue(':date', $date);
-    $statement->execute();
-}
+    if(!$errors) {
+        $statement = $pdo->prepare("INSERT INTO products(title, image, description, price, create_date)
+                        VALUE (:title, :image, :description, :price, :date)"); 
+        $statement->bindValue(':title', $title);
+        $statement->bindValue(':image', '');
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':price', $price);
+        $statement->bindValue(':date', $date);
+        $statement->execute();
+    }
+} 
 ?>
 
 <pre>

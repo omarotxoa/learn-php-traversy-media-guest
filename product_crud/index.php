@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -37,7 +37,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($products as $i => $product) : ?>
                 <tr>
-                    
+
                     <th><?php echo $i + 1; ?></th>
                     <td><img class="product-image" src="<?php echo $product['image']; ?>"></td>
                     <td><?php echo $product['title']; ?></td>
@@ -45,7 +45,11 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $product['create_date']; ?></td>
                     <td>
                         <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
-                        <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                        <form style="display:inline-block" action="delete.php" method="post">
+                          <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                          <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                        </form>
+                        
                     </td>
                 </tr>
                 <?php endforeach; ?>

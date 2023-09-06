@@ -1,6 +1,6 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+require_once "database.php";
 
 $id = $_GET['id'] ?? null;
 
@@ -84,10 +84,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php print_r($product); ?>
 </pre>
 
-
-
-
-<?php include_once('views/partials/header.php'); ?>
+<?php include_once "views/partials/header.php"; ?>
   <body>
     <div class="container my-5">
         <div class="col-lg-8 px-0">

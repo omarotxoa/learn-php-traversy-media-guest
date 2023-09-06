@@ -29,8 +29,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-12 px-0">
         <h1>Product Crud</h1>
         <p><a href="create.php" class="btn btn-outline-primary">Create</a></p>
-
-        //search form
         <form action="" method="get">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search for products" name="search" value="<?php echo $search ?>">

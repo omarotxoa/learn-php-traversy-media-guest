@@ -1,0 +1,14 @@
+body {
+    padding: 50px;
+}
+
+.product-image {
+    width: 100px;
+    height: auto;
+}
+
+.product-image-update {
+    width: 300px;
+    height: auto;
+}
+

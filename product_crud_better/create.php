@@ -2,6 +2,13 @@
 
 require_once "database.php";
 
+$product = [
+    'image' => '',
+    'title' => '',
+    'description' => '',
+    'price' => ''
+];
+
 echo '<pre>';
 var_dump($_SERVER['REQUEST_METHOD']);
 var_dump($_FILES);
@@ -75,6 +82,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <body>
     <div class="container my-5">
         <div class="col-lg-8 px-0">
+            <a href="index.php" class="btn btn-outline-primary">Go Back to Products</a>
             <h1>Create New Product</h1>
             <?php if(!empty($errors)): ?>
                 <div class="alert alert-danger">
@@ -83,28 +91,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>Product Image</label>
-                    <br>
-                    <input type="file" name="image">
-                </div>
-                <div class="form-group">
-                    <label>Product Title</label>
-                    <input name="title" type="text" class="form-control" value="<?php echo $title; ?>">
-                </div>
-                <div class="form-group">
-                    <label>Product Description</label>
-                    <input name="description" type="textarea" class="form-control"<?php echo $description; ?>>
-                </div>
-                <div class="form-group">
-                    <label>Product Price</label>
-                    <input name="price" type="number" step=".01" class="form-control" value="<?php echo $price; ?>">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+            <?php include_once "views/products/form.php"; ?>
         </div>
     </div>
 
